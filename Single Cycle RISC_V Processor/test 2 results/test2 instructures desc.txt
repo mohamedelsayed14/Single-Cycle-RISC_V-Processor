@@ -1,0 +1,20 @@
+#Address 	Machine Code      RISC-V Assembly                       
+0x0	    	0x00A00093		  	addi x1,x0,10
+0x4	    	0x01400113		  	addi x2,x0,20
+0x8	    	0x001101B3		  	add x3,x2,x1
+0xc	    	0x40110233		  	sub x4,x2,x1
+0x10		0x0020A2B3		  	slt x5,x1,x2
+0x14		0x0000F333	 	  	and x6,x1,x0
+0x18		0x0000E3B3	 	    or x7,x1,x0
+0x1c		0x00109413	 	  	slli x8,x1,1
+0x20		0x0010D493	 	  	srli x9,x1,1
+0x24		0x00102223	       	sw x1,4(x0)
+0x28		0x00402503	 	  	lw x10,4(x0)
+0x2c		0x00208663	 	  	beq x1,x2,branch
+0x30		0x00209463	       	bne x1,x2,branch
+0x34		0x00100093	 	  	addi x1,x0,1
+0x38		0x040005E7	branch: jalr x11,x0,jr
+0x3c		0x00100093	 	  	addi x1,x0,1
+0x40		0x0080066F	    jr: jal x12,end
+0x44		0x00100093	 	  	addi x1,x0,1
+0x48		0x00000063	   end:	beq x0,x0,end
